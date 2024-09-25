@@ -1,5 +1,3 @@
-extern crate approx;
-
 mod test_macro_import {
     use approx::{
         assert_abs_diff_eq, assert_abs_diff_ne, assert_relative_eq, assert_relative_ne,

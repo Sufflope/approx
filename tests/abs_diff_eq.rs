@@ -16,10 +16,8 @@
 // https://github.com/Pybonacci/puntoflotante.org/blob/master/content/errors/NearlyEqualsTest.java
 #![no_std]
 
-#[macro_use]
-extern crate approx;
-
 mod test_f32 {
+    use approx::{assert_abs_diff_eq, assert_abs_diff_ne};
     use core::f32;
 
     #[test]
@@ -189,6 +187,7 @@ mod test_f32 {
 
 #[cfg(test)]
 mod test_f64 {
+    use approx::{assert_abs_diff_eq, assert_abs_diff_ne};
     use core::f64;
 
     #[test]
@@ -358,6 +357,8 @@ mod test_f64 {
 
 mod test_ref {
     mod test_f32 {
+        use approx::{assert_abs_diff_eq, assert_abs_diff_ne};
+
         #[test]
         fn test_basic() {
             assert_abs_diff_eq!(&1.0f32, &1.0f32);
@@ -366,6 +367,8 @@ mod test_ref {
     }
 
     mod test_f64 {
+        use approx::{assert_abs_diff_eq, assert_abs_diff_ne};
+
         #[test]
         fn test_basic() {
             assert_abs_diff_eq!(&1.0f64, &1.0f64);
@@ -376,6 +379,8 @@ mod test_ref {
 
 mod test_slice {
     mod test_f32 {
+        use approx::{assert_abs_diff_eq, assert_abs_diff_ne};
+
         #[test]
         fn test_basic() {
             assert_abs_diff_eq!([1.0f32, 2.0f32][..], [1.0f32, 2.0f32][..]);
@@ -384,6 +389,8 @@ mod test_slice {
     }
 
     mod test_f64 {
+        use approx::{assert_abs_diff_eq, assert_abs_diff_ne};
+
         #[test]
         fn test_basic() {
             assert_abs_diff_eq!([1.0f64, 2.0f64][..], [1.0f64, 2.0f64][..]);
@@ -394,11 +401,11 @@ mod test_slice {
 
 #[cfg(feature = "num-complex")]
 mod test_complex {
-    extern crate num_complex;
-    pub use self::num_complex::Complex;
+    pub use num_complex::Complex;
 
     mod test_f32 {
         use super::Complex;
+        use approx::{assert_abs_diff_eq, assert_abs_diff_ne};
 
         #[test]
         fn test_basic() {
@@ -421,6 +428,7 @@ mod test_complex {
 
     mod test_f64 {
         use super::Complex;
+        use approx::{assert_abs_diff_eq, assert_abs_diff_ne};
 
         #[test]
         fn test_basic() {

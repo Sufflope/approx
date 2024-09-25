@@ -20,10 +20,8 @@
 //! more positional style:
 //!
 //! ```rust
-//! #[macro_use]
-//! extern crate approx;
-//!
 //! use std::f64;
+//! use approx::{abs_diff_eq, relative_eq, ulps_eq};
 //!
 //! # fn main() {
 //! abs_diff_eq!(1.0, 1.0);
@@ -51,9 +49,7 @@
 //! For example, we might want to be able to do approximate assertions on a complex number type:
 //!
 //! ```rust
-//! #[macro_use]
-//! extern crate approx;
-//! # use approx::{AbsDiffEq, RelativeEq, UlpsEq};
+//! # use approx::{AbsDiffEq, RelativeEq, UlpsEq, assert_relative_eq, assert_ulps_eq};
 //!
 //! #[derive(Debug, PartialEq)]
 //! struct Complex<T> {
@@ -156,10 +152,6 @@
 
 #![no_std]
 #![allow(clippy::transmute_float_to_int)]
-
-#[cfg(feature = "num-complex")]
-extern crate num_complex;
-extern crate num_traits;
 
 mod abs_diff_eq;
 mod relative_eq;

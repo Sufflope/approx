@@ -1,7 +1,8 @@
 use core::{cell, f32, f64};
 #[cfg(feature = "num-complex")]
 use num_complex::Complex;
-use AbsDiffEq;
+
+use crate::AbsDiffEq;
 
 /// Equality comparisons between two numbers using both the absolute difference and
 /// relative based comparisons.
