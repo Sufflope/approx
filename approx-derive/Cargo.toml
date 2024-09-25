@@ -1,0 +1,14 @@
+[package]
+name = "approx-derive"
+version = "0.5.1"
+edition = "2021"
+
+[lib]
+proc-macro = true
+
+[dependencies]
+darling = "0.20"
+itertools = "0.13"
+proc-macro2 = "1"
+quote = "1"
+syn = "2"

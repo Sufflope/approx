@@ -157,6 +157,8 @@
 #![no_std]
 #![allow(clippy::transmute_float_to_int)]
 
+#[cfg(feature = "derive")]
+extern crate approx_derive;
 #[cfg(feature = "num-complex")]
 extern crate num_complex;
 extern crate num_traits;
@@ -170,6 +172,9 @@ mod macros;
 pub use abs_diff_eq::AbsDiffEq;
 pub use relative_eq::RelativeEq;
 pub use ulps_eq::UlpsEq;
+
+#[cfg(feature = "derive")]
+pub use approx_derive::{AbsDiffEq, RelativeEq};
 
 /// The requisite parameters for testing for approximate equality using a
 /// absolute difference based comparison.
